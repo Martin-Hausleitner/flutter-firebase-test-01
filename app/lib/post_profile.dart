@@ -27,20 +27,81 @@ class PostProfile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Rick A.',
+                'John Doe',
                 style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
-                'vor 2min ・ 300m entfernt',
-                style: GoogleFonts.inter(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  // add light gray color
-                  color: Colors.grey[600],
-                ),
+              Row(
+                children: [
+                  // show a small clock icon
+                  Icon(
+                    Icons.access_time,
+                    size: 12,
+                    color: Colors.grey,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 2),
+                    child: Row(
+                      children: [
+                        Text(
+                          '2',
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            // add light gray color
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        Text(
+                          'min',
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            // add light gray color
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  //show a locaiton icon
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    // show this svg:
+                    child: Icon(
+                      Icons.location_on_outlined,
+                      size: 12,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 2),
+                    child: Row(
+                      children: [
+                        Text(
+                          '300',
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            // add light gray color
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        Text(
+                          'm',
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            // add light gray color
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

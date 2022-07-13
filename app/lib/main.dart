@@ -1,5 +1,6 @@
 import 'package:app/post.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Homxe Page'),
+      home: const MyHomePage(title: 'Nachbarschaft'),
     );
   }
 }
@@ -49,18 +50,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -74,14 +66,25 @@ class _MyHomePageState extends State<MyHomePage> {
       //background gray
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         title: Text(widget.title),
+        titleTextStyle: GoogleFonts.inter(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          color: Colors.black,
+        ),
       ),
-      body: PageView(
+      body: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[
+          SizedBox(height: 3),
+          Post(),
+          SizedBox(height: 3),
           const Post(),
+          SizedBox(height: 3),
           const Post(),
-          const Post(),
+          SizedBox(height: 3),
           const Post(),
         ],
       ),
