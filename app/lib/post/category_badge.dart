@@ -3,8 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+enum Category {
+  Mitteilung,
+  Suche,
+  Warnung,
+}
+
 class CategoryBadge extends StatelessWidget {
-  const CategoryBadge({Key? key}) : super(key: key);
+  //creat a enum with Mitteilung und suche
+  final Category category;
+
+  const CategoryBadge({Key? key, required this.category}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +22,36 @@ class CategoryBadge extends StatelessWidget {
           const EdgeInsets.only(right: 6, bottom: 10),
       child: Container(
         // return a text with a gray border with rounded corners and a padding left 5 right 5
-        padding:
-            const EdgeInsets.only(top: 2, bottom: 2, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 2, bottom: 2, left: 10, right: 10),
         decoration: BoxDecoration(
           //background color is blue
-          color: Color.fromARGB(255, 146, 203, 250),
+          color: //when the category is  Mitteilung return a color of Colors.blue[100], when the category is suche return a color of Colors.green[100], when the category is warnung return a color of Colors.red[100]
+              category == Category.Mitteilung
+                  ? Colors.blue[100]
+                  : category == Category.Suche
+                      ? Colors.green[100]
+                      : Colors.red[100],
 
           borderRadius: BorderRadius.circular(10),
         ),
 
         // return a text with a fontSize of 12 with a fontWeight of FontWeight.w600 and a color of Colors.white and a child of Text with a text of 'New'
         child: Text(
-          'Ausleihen',
+          //weth the category is Mitteilung return a text of 'Mitteilung', when the category is suche return a text of 'Suche', when the category is warnung return a text of 'Warnung'
+          category == Category.Mitteilung
+              ? 'Mitteilung'
+              : category == Category.Suche
+                  ? 'Suche'
+                  : 'Warnung',
           style: GoogleFonts.inter(
             fontSize: 11,
             fontWeight: FontWeight.w500,
-            color: Colors.blue[900],
+            color: //when the category is  Mitteilung return a color of Colors.blue[900], when the category is suche return a color of Colors.white, when the category is leihen return a color of Colors.red
+                category == Category.Mitteilung
+                    ? Colors.blue[800]
+                    : category == Category.Suche
+                        ? Colors.green[800]
+                        : Colors.red[800],
           ),
           // return a text with a fontSize of 12 with a fontWeight of FontWeight.w600 and a color of Colors.white and a child of Text with a text of 'New'
         ),

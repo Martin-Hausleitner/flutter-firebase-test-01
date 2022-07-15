@@ -29,36 +29,30 @@ class Post extends StatelessWidget {
             padding: const EdgeInsets.only(left: 18, top: 18, right: 18),
             child: Column(
               children: <Widget>[
-                
-                  
-                    Padding(
-                      //paddting bottom 10
-                      padding: const EdgeInsets.only(bottom: 10),
-                      //align left
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        //return a text with a fontSize of 12 with a fontWeight of FontWeight.w600 and a color of Colors.black and a child of Text with a text of 'New'
-                        child: Text(
-                        'Post Title',
-                        
-                        style: GoogleFonts.inter(
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold,
-                          
-                          ),
-                        ),
+                Padding(
+                  //paddting bottom 10
+                  padding: const EdgeInsets.only(bottom: 10),
+                  //align left
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    //return a text with a fontSize of 12 with a fontWeight of FontWeight.w600 and a color of Colors.black and a child of Text with a text of 'New'
+                    child: Text(
+                      'Post Title',
+                      style: GoogleFonts.inter(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
                       ),
-
-                      
                     ),
-                 
-                
+                  ),
+                ),
+
                 // add a Row with 3 PostHashtagBadge widgets beginning on the left with a space between them of 10
                 Row(
                   children: <Widget>[
-                    CategoryBadge(),
-                    HashtagBadge(),
-                    HashtagBadge(),
+                    //DetailScreen(title: 'title'),
+                    CategoryBadge(category: Category.Mitteilung),
+                    //show HashtagBadges with a list oft text
+                    HashtagBadges(text: ['tdesssxt', 'tdesssxt', 'tdesssxt', 'tdesssxt', 'tdesssxt']),
                   ],
                 ),
 
