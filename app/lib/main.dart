@@ -1,4 +1,5 @@
 import 'package:app/post.dart';
+import 'package:app/post/hashtag_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -50,10 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-
-  
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -77,15 +74,29 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
-        children: <Widget>[
+        children: const [
           SizedBox(height: 3),
-          Post(),
+          Post(
+            postTitle: 'test', postHashtags: ['test', 'test2'],
+          ),
           SizedBox(height: 3),
-          const Post(),
+          Post(
+            postTitle: 'test',
+          ),
+
           SizedBox(height: 3),
-          const Post(),
+          Post(
+            postTitle: 'test',
+          ),
+
           SizedBox(height: 3),
-          const Post(),
+          Post(
+            postTitle: 'test',
+          ),
+
+          // create a list aof hashtags
+
+          // return a 3 of HashtagBadge with singlechildscrollview
         ],
       ),
     );

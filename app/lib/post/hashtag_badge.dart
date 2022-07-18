@@ -3,39 +3,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-//create a class called hastagbadges which inputs a array of text and display it as a row of hashtagsBadge
+// Create a HashtagBadges class which displys a list of hashtags and can be scolled horizontally
 class HashtagBadges extends StatelessWidget {
-  //display a row of hashtagsBadge and when is overflow the row will be scrollable
   final List<String> hashtags;
 
-  const HashtagBadges({Key? key, required this.hashtags}) : super(key: key);
+  const HashtagBadges({
+    Key? key,
+    this.hashtags = const ['hashtag1', 'hashtag2', 'hashtag3'],
+  }) : super(key: key);
 
+  //create a SingleChildScrollView class with a list of hashtags and with HashtagBadge a
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
       child: Row(
-        //when the array is empty return a empty container
-        children: hashtags.isEmpty
-            ? []
-            : [
-                //when the array is not empty return a row of hashtagsBadge
-                for (final hashtag in hashtags)
-                  //return a hashtagBadge with a text of the hashtag
-                  HashtagBadge(
-                    text: hashtag,
-                  ),
-              ],
+        children: hashtags
+            .map((hashtag) => HashtagBadge(
+                  hashtag: hashtag,
+                ))
+            .toList(),
       ),
     );
   }
-
-
 }
 
 class HashtagBadge extends StatelessWidget {
-  final String text;
-  const HashtagBadge({Key? key, required this.text}) : super(key: key);
+  final String hashtag;
+  const HashtagBadge({Key? key, required this.hashtag}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -50,7 +45,7 @@ class HashtagBadge extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
-          '#$text',
+          '#$hashtag',
           style: GoogleFonts.inter(
             fontSize: 11,
             fontWeight: FontWeight.w500,
