@@ -17,10 +17,15 @@ class HashtagBadges extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
+      // physics: const BouncingScrollPhysics(),
+      
       child: Row(
         children: hashtags
-            .map((hashtag) => HashtagBadge(
-                  hashtag: hashtag,
+            .map((hashtag) => Padding(
+                  padding: const EdgeInsets.only(right: 6),
+                  child: HashtagBadge(
+                    hashtag: hashtag,
+                  ),
                 ))
             .toList(),
       ),
@@ -33,24 +38,21 @@ class HashtagBadge extends StatelessWidget {
   const HashtagBadge({Key? key, required this.hashtag}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 6, bottom: 10),
-      child: Container(
-        padding: const EdgeInsets.only(top: 2, bottom: 2, left: 8, right: 8),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Color.fromARGB(255, 207, 207, 207),
-            width: 0.8,
-          ),
-          borderRadius: BorderRadius.circular(10),
+    return Container(
+      padding: const EdgeInsets.only(top: 2, bottom: 2, left: 8, right: 8),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Color.fromARGB(255, 207, 207, 207),
+          width: 0.8,
         ),
-        child: Text(
-          '#$hashtag',
-          style: GoogleFonts.inter(
-            fontSize: 11,
-            fontWeight: FontWeight.w500,
-            color: Colors.black,
-          ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Text(
+        '#$hashtag',
+        style: GoogleFonts.inter(
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+          color: Colors.black,
         ),
       ),
     );

@@ -3,8 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PostButton extends StatelessWidget {
-  const PostButton({Key? key}) : super(key: key);
+class RoundIconButton  extends StatelessWidget {
+  // Icon
+  final IconData icon;
+  final String text;
+
+  const RoundIconButton({Key? key, required this.icon, this.text = '0'})
+      : super(key: key);
 
   //Create a Contianer with a gray thin broder and inside a IconButton with a Icon and a onPressed function
   @override
@@ -22,7 +27,10 @@ class PostButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: IconButton(
-            icon: const Icon(Icons.thumb_up),
+            icon: // use icon var
+                Icon(
+              icon,
+            ),
             iconSize: 18,
             color: Colors.black,
             focusColor: Colors.brown,
@@ -35,7 +43,7 @@ class PostButton extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            '40',
+            text,
             style: GoogleFonts.inter(
               fontSize: 12,
               fontWeight: FontWeight.w400,
@@ -48,7 +56,4 @@ class PostButton extends StatelessWidget {
   }
 }
 
-
 // create a PostButton 2 extents state with aButton which change to Red when pressed
-
-
