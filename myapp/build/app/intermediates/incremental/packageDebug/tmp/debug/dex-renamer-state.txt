@@ -1,4 +1,0 @@
-#Wed Jul 13 14:22:12 CEST 2022
-base.0=C\:\\Users\\am\\OneDrive\\Dokumente\\GitHub\\flutter-firebase-test-01\\myapp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

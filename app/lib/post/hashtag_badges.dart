@@ -42,7 +42,7 @@ class HashtagBadge extends StatelessWidget {
       padding: const EdgeInsets.only(top: 2, bottom: 2, left: 8, right: 8),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Color.fromARGB(255, 207, 207, 207),
+          color: const Color.fromARGB(255, 207, 207, 207),
           width: 0.8,
         ),
         borderRadius: BorderRadius.circular(10),

@@ -1,5 +1,5 @@
 import 'package:app/post.dart';
-import 'package:app/post/hashtag_badges.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -85,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 3),
           Post(
             postTitle: 'test',
+            postHashtags: ['test', 'test2'],
           ),
 
           SizedBox(height: 3),

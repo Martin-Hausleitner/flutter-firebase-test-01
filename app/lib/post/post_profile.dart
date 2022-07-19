@@ -27,7 +27,7 @@ class PostProfile extends StatelessWidget {
           flex: 15,
           child: Container(
             clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
             child: Image.network(

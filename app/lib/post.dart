@@ -1,8 +1,10 @@
 //import material
+import 'package:app/post/action_bar.dart';
+import 'package:app/shared/button.dart';
 import 'package:app/post/category_badge.dart';
 import 'package:app/post/hashtag_badges.dart';
-import 'package:app/round_icon_button.dart';
 import 'package:app/post/post_profile.dart';
+import 'package:app/shared/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,7 +26,7 @@ class Post extends StatelessWidget {
   const Post({
     Key? key,
     required this.postTitle,
-    this.postCategory = Category.Mitteilung,
+    this.postCategory = Category.suche,
     this.postHashtags = const [
       'test',
       'test2',
@@ -118,39 +120,45 @@ class Post extends StatelessWidget {
             const SizedBox(height: spacingBetween),
 
             // Post Description
-            Text(
-              postDescription,
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: Color.fromARGB(216, 0, 0, 0),
-              ),
+            Stack(
+              alignment: const Alignment(1, 1),
+              children: [
+                Text(
+                  postDescription,
+                  maxLines: 4,
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color.fromARGB(144, 221, 221, 221),
+                        Colors.white,
+                        Colors.blue,
+                      ],
+                    ),
+                  ),
+                  child: const Text(
+                    'Read More',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
             ),
 
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.disabled))
-                    return Colors.red;
-                  return null; // Defer to the widget's default.
-                }),
-                foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.disabled))
-                    return Colors.blue;
-                  return null; // Defer to the widget's default.
-                }),
-              ),
-              onPressed: null,
-              child: Text('ElevatedButton with custom disabled colors'),
-            ),
+            //when the catogory is Suche the button2 is visible
 
             // place a dark green button with a text "anschreiben" and a comment icon on the left side of the button
-            RoundIconButton(
-              text: 'Anschreiben',
-              icon: Icons.comment,
-            ),
 
             // Post Image
             postImage != ''
@@ -170,18 +178,19 @@ class Post extends StatelessWidget {
                   )
                 : Container(),
 
+            // Button
+            if (postCategory == Category.suche)
+              const Padding(
+                padding: EdgeInsets.only(top: spacingBetween),
+                child: Button2(
+                  text: 'Anschreiben',
+                ),
+              ),
+
             const SizedBox(height: spacingBetween),
 
             // Action Bar
-            Row(
-              children: const [
-                // create PostButton with a icon thumb up
-                RoundIconButton(
-                  icon: Icons.thumb_up,
-                  text: '11',
-                ),
-              ],
-            ),
+            const ActionBar(),
           ],
         ),
       ),
