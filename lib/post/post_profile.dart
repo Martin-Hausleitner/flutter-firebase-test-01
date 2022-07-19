@@ -57,7 +57,7 @@ class PostProfile extends StatelessWidget {
                 Row(
                   children: [
                     // show a small clock icon
-                    Icon(
+                    const Icon(
                       Icons.access_time,
                       size: 12,
                       color: Colors.grey,

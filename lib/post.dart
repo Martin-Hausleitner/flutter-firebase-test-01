@@ -8,6 +8,7 @@ import 'package:app/shared/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 //create a new class called Post which extends StatelessWidget which is Container with infinty and a decortion box with borderradius
 
 class Post extends StatelessWidget {
@@ -119,40 +120,102 @@ class Post extends StatelessWidget {
 
             const SizedBox(height: spacingBetween),
 
+            // show a more button if the maxLines is over 4
+
             // Post Description
             Stack(
               alignment: const Alignment(1, 1),
               children: [
-                Text(
-                  postDescription,
-                  maxLines: 4,
-                  style: GoogleFonts.inter(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(left: 20),
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromARGB(144, 221, 221, 221),
-                        Colors.white,
-                        Colors.blue,
-                      ],
-                    ),
-                  ),
-                  child: const Text(
-                    'Read More',
-                    style: TextStyle(
+                //align text left
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    //print postDescription.split('\n').length as string
+                    postDescription,
+
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      //change the space bettwene the letters
+                      letterSpacing: -0.1,
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
                 ),
+                // Text(
+                //   postDescription,
+                //   maxLines: 4,
+                //   style: GoogleFonts.inter(
+                //     fontSize: 14,
+                //     fontWeight: FontWeight.w400,
+                //   ),
+                // ),
+                // create a row with a white box and a white gradient and a text on top
+                if (postDescription.split('\n').length > 2)
+                  SizedBox(
+                    height: 12,
+                    child: Row(
+                      // alighn left
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 17,
+                          //height is a s bit as the other container
+                          height: 50,
+
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.white.withOpacity(0.3),
+                                Colors.white,
+                              ],
+                            ),
+                          ),
+                        ),
+                        //create a white container with a text as child
+                        Container(
+                          height: 50,
+                          padding: const EdgeInsets.only(left: 6),
+                          // create a white background
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: const Text(
+                            'More',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                // Container(
+                //   padding: const EdgeInsets.only(left: 20),
+                //   decoration: const BoxDecoration(
+                //     gradient: LinearGradient(
+                //       begin: Alignment.topLeft,
+                //       end: Alignment.bottomRight,
+                //       colors: [
+                //         Color.fromARGB(144, 221, 221, 221),
+                //         Colors.white,
+                //         Colors.blue,
+                //       ],
+                //     ),
+                //   ),
+                //   child: const Text(
+                //     'Read More',
+                //     style: TextStyle(
+                //       fontSize: 14,
+                //       fontWeight: FontWeight.w500,
+                //       color: Colors.black,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
 

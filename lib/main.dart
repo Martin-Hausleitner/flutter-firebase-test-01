@@ -1,7 +1,5 @@
 import 'package:app/post.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,93 +14,39 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Nachbarschaft'),
+      home: const Home(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      //background gray
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text(widget.title),
-        titleTextStyle: GoogleFonts.inter(
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-          color: Colors.black,
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text('Locoo'),
         ),
-      ),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: const [
-          SizedBox(height: 3),
-          Post(
-            postTitle: 'Suche Bormaschine',
-            postHashtags: ['test', 'test2'],
-            postAuthorName: 'Johny deep',
-            postImage: 'https://picsum.photos/id/1/200/300',
-          ),
-          SizedBox(height: 3),
-          Post(
-            postTitle: 'test',
-            postHashtags: ['test', 'test2'],
-          ),
-
-          SizedBox(height: 3),
-          Post(
-            postTitle: 'test',
-          ),
-
-          SizedBox(height: 3),
-          Post(
-            postTitle: 'test',
-          ),
-
-          // create a list aof hashtags
-
-          // return a 3 of HashtagBadge with singlechildscrollview
-        ],
-      ),
-    );
+        body: ListView(
+          children: const [
+            Post(
+              postTitle: 'Post Title',
+              postImage: 'https://i.pravatar.cc/303',
+              postAuthorName: 'John Doe',
+              postPublishDate: '2',
+              postDistance: '1',
+            ),
+            Post(
+              postTitle: 'Post Title',
+              postImage: 'https://i.pravatar.cc/303',
+              postDistance: '1',
+            ),
+          ],
+        ));
   }
 }
