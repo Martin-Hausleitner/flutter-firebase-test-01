@@ -19,24 +19,13 @@ class PostProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flex(
-      direction: Axis.horizontal,
+    return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-        Expanded(
-          flex: 15,
-          child: Container(
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Image.network(
-              authorImage,
-            ),
-          ),
+        CircleAvatar(
+          backgroundImage: NetworkImage(authorImage),
         ),
         Expanded(
-          flex: 85,
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Column(

@@ -1,5 +1,6 @@
 //import material
 import 'package:app/post/action_bar.dart';
+import 'package:app/post/discription.dart';
 import 'package:app/shared/button.dart';
 import 'package:app/post/category_badge.dart';
 import 'package:app/post/hashtag_badges.dart';
@@ -62,6 +63,7 @@ class Post extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(18),
         child: Column(
+          //allign left
           children: <Widget>[
             // Post title
             Align(
@@ -121,103 +123,48 @@ class Post extends StatelessWidget {
             const SizedBox(height: spacingBetween),
 
             // show a more button if the maxLines is over 4
+            // ExpandableText(
+            //   postDescription,
+            //   expandText: 'more',
+            //   collapseText: 'show less',
+            //   maxLines: 4,
+            //   linkColor: Colors.red,
+            //   expandOnTextTap: false,
+            //   urlStyle: const TextStyle(
+            //     color: Colors.red,
+            //     decoration: TextDecoration.underline,
+            //   ),
+            //   mentionStyle: const TextStyle(
+            //     color: Colors.green,
+            //     decoration: TextDecoration.underline,
+            //   ),
+            //   hashtagStyle: const TextStyle(
+            //     color: Colors.orange
 
-            // Post Description
-            Stack(
-              alignment: const Alignment(1, 1),
-              children: [
-                //align text left
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    //print postDescription.split('\n').length as string
-                    postDescription,
+            //   ),
+            //   onExpandedChanged:
+            //   // show snakbar
+            //   (bool expanded) {
+            //     if (expanded) {
+            //       Scaffold.of(context).showSnackBar(
+            //         const SnackBar(
+            //           content: Text('Expanded'),
+            //         ),
+            //       );
+            //     } else {
+            //       Scaffold.of(context).showSnackBar(
+            //         const SnackBar(
+            //           content: Text('Collapsed'),
+            //         ),
+            //       );
+            //     }
+            //   },
 
-                    maxLines: 4,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.inter(
-                      //change the space bettwene the letters
-                      letterSpacing: -0.1,
-                      fontSize: 14,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                // Text(
-                //   postDescription,
-                //   maxLines: 4,
-                //   style: GoogleFonts.inter(
-                //     fontSize: 14,
-                //     fontWeight: FontWeight.w400,
-                //   ),
-                // ),
-                // create a row with a white box and a white gradient and a text on top
-                if (postDescription.split('\n').length > 2)
-                  SizedBox(
-                    height: 12,
-                    child: Row(
-                      // alighn left
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          width: 17,
-                          //height is a s bit as the other container
-                          height: 50,
+            // ),
 
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.white.withOpacity(0.3),
-                                Colors.white,
-                              ],
-                            ),
-                          ),
-                        ),
-                        //create a white container with a text as child
-                        Container(
-                          height: 50,
-                          padding: const EdgeInsets.only(left: 6),
-                          // create a white background
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          child: const Text(
-                            'More',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+            //Create a Layoutbuilder which shows display postDiscription and when the postDescription is longer than 4 lines, show a more button
 
-                // Container(
-                //   padding: const EdgeInsets.only(left: 20),
-                //   decoration: const BoxDecoration(
-                //     gradient: LinearGradient(
-                //       begin: Alignment.topLeft,
-                //       end: Alignment.bottomRight,
-                //       colors: [
-                //         Color.fromARGB(144, 221, 221, 221),
-                //         Colors.white,
-                //         Colors.blue,
-                //       ],
-                //     ),
-                //   ),
-                //   child: const Text(
-                //     'Read More',
-                //     style: TextStyle(
-                //       fontSize: 14,
-                //       fontWeight: FontWeight.w500,
-                //       color: Colors.black,
-                //     ),
-                //   ),
-                // ),
-              ],
-            ),
+            Discription(postDescription: postDescription),
 
             //when the catogory is Suche the button2 is visible
 
